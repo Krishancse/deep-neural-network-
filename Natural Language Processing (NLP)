@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class NLPFramework {
+    // Tokenization
+    public List<String> tokenize(String text) {
+        List<String> tokens = new ArrayList<>();
+        String[] words = text.split("\\s+");
+        for (String word : words) {
+            tokens.add(word);
+        }
+        return tokens;
+    }
+
+    // Remove stopwords
+    public List<String> removeStopwords(List<String> tokens) {
+        List<String> stopwords = Arrays.asList("is", "a", "for", "in", "the", "of");
+        List<String> filteredTokens = new ArrayList<>();
+
+        for (String token : tokens) {
+            if (!stopwords.contains(token.toLowerCase())) {
+                filteredTokens.add(token);
+            }
+        }
+
+        return filteredTokens;
+    }
+
+    // Other methods and functionalities
+
+    public static void main(String[] args) {
+        NLPFramework nlp = new NLPFramework();
+        String inputText = "This is a sample sentence for tokenization.";
+        List<String> tokens = nlp.tokenize(inputText);
+        List<String> filteredTokens = nlp.removeStopwords(tokens);
+        System.out.println(filteredTokens);
+    }
+}
