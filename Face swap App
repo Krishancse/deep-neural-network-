@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class FaceswapApp {
+
+    public static void main(String[] args) {
+        System.out.println("The master faceswap script");
+
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            System.setProperty("LANG", ""); // Translations workaround for Windows
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select an action: (extract/train/convert/gui)");
+        String action = scanner.nextLine();
+
+        switch (action.toLowerCase()) {
+            case "extract":
+                extractFaces();
+                break;
+            case "train":
+                trainModel();
+                break;
+            case "convert":
+                convertFaces();
+                break;
+            case "gui":
+                launchGui();
+                break;
+            default:
+                printHelp();
+        }
+
+        scanner.close();
+    }
+
+    private static void extractFaces() {
+        System.out.println("Extracting faces...");
+        // Your logic for extracting faces
+    }
+
+    private static void trainModel() {
+        System.out.println("Training model...");
+        // Your logic for training the model
+    }
+
+    private static void convertFaces() {
+        System.out.println("Converting faces...");
+        // Your logic for converting faces
+    }
+
+    private static void launchGui() {
+        System.out.println("Launching GUI...");
+        // Your logic for launching the GUI
+    }
+
+    private static void printHelp() {
+        System.out.println("Invalid action. Usage: java FaceswapApp [extract/train/convert/gui]");
+    }
+}
